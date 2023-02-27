@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val finalWord=findViewById<TextView>(R.id.SecretWord)
         finalWord.text=wordToGuess
         //finalWord.visibility = View.VISIBLE
-        Toast.makeText(this, wordToGuess, Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, wordToGuess, Toast.LENGTH_LONG).show()
         fun checkGuess(guess: String) : String {
             var result = ""
 

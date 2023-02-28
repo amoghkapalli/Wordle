@@ -1,5 +1,6 @@
 package com.example.wordle
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 class MainActivity : AppCompatActivity() {
     private val wordToGuess = FourLetterWordList.getRandomFourLetterWord()
     private var guessNum=1
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val finalWord=findViewById<TextView>(R.id.SecretWord)
         finalWord.text=wordToGuess
         //finalWord.visibility = View.VISIBLE
-        //Toast.makeText(this, wordToGuess, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, wordToGuess, Toast.LENGTH_LONG).show()
         fun checkGuess(guess: String) : String {
             var result = ""
 
@@ -85,7 +87,9 @@ class MainActivity : AppCompatActivity() {
                 if(guess1result=="OOOO"){
                     Toast.makeText(this, "You guessed the word", Toast.LENGTH_LONG).show()
                     finalWord.visibility = View.VISIBLE
-                    finalWord.text = wordToGuess
+                    finalWord.text = "CORRECT WORD: $wordToGuess"
+                    submitbutton.isEnabled=false
+                    reset.isEnabled=true
                 }
                 else{
                     Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show()
@@ -106,7 +110,9 @@ class MainActivity : AppCompatActivity() {
                 if(guess2result=="OOOO"){
                     Toast.makeText(this, "You guessed the word", Toast.LENGTH_LONG).show()
                     finalWord.visibility = View.VISIBLE
-                    finalWord.text = wordToGuess
+                    finalWord.text = "CORRECT WORD: $wordToGuess"
+                    submitbutton.isEnabled=false
+                    reset.isEnabled=true
                 }
                 else{
                     Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show()
@@ -127,13 +133,15 @@ class MainActivity : AppCompatActivity() {
                 if(guess3result=="OOOO"){
                     Toast.makeText(this, "You guessed the word", Toast.LENGTH_LONG).show()
                     finalWord.visibility = View.VISIBLE
-                    finalWord.text = wordToGuess
+                    finalWord.text = "CORRECT WORD: $wordToGuess"
+                    submitbutton.isEnabled=false
+                    reset.isEnabled=true
                 }
                 else{
                     if(guessNum==4) {
                         Toast.makeText(this, "Incorrect. Number of tries has been reached", Toast.LENGTH_LONG).show()
                         finalWord.visibility = View.VISIBLE
-                        finalWord.text = wordToGuess
+                        finalWord.text = "CORRECT WORD: $wordToGuess"
                         submitbutton.isEnabled=false
                         reset.isEnabled=true
                     }

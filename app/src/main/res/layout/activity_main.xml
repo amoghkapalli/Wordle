@@ -9,8 +9,8 @@
     <EditText
 
         android:id="@+id/et_simple"
-        android:layout_width="271dp"
-        android:layout_height="38dp"
+        android:layout_width="252dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="4dp"
         android:hint="@string/enter_guess"
         android:lines="1"
